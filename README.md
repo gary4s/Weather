@@ -8,8 +8,15 @@ The pipeline follows a classic Extract, Transform, Load (ETL) pattern orchestrat
     Load: Append the data into a Microsoft SQL Server instance hosted on the local machine.
 
 # Getting Started
-    1. PrerequisitesDocker Desktop (with Compose enabled)MS SQL Server (Local instance or Express)WeatherAPI Key (Free tier)
-    2. SQL Server ConfigurationTo allow Docker to communicate with your local SQL Server, ensure the following settings in SQL Server Configuration Manager:TCP/IP: EnabledPort: 1433 (Static)Authentication: Mixed Mode (SQL & Windows Auth enabled)Database: Create a database named weather.
+    1. Prerequisites    Docker Desktop (with Compose enabled)
+                        MS SQL Server (Local instance or Express)
+                        WeatherAPI Key (Free tier)
+    2. SQL Server ConfigurationTo allow Docker to communicate with your local SQL Server, ensure the following settings in SQL Server
+    Configuration Manager:
+    TCP/IP: Enabled
+    Port: 1433 (Static)
+    Authentication: Mixed Mode (SQL & Windows Auth enabled)
+    Database: Create a database named weather.
     3. Environment VariablesCreate a .env file in your root directory:BashWEATHER_API_KEY=your_api_key_here
 
 # Airflow Connection Setup
