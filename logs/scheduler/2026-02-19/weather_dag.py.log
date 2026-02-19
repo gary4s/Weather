@@ -331,3 +331,17 @@
 [2026-02-19T12:09:26.507+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:09:26.505+0000] {dag.py:2941} INFO - Sync 1 DAGs
 [2026-02-19T12:09:26.557+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:09:26.557+0000] {dag.py:3722} INFO - Setting next_dagrun for weather_etl_v1 to 2026-02-19T11:00:00+00:00, run_after=2026-02-19T12:00:00+00:00
 [2026-02-19T12:09:26.605+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/weather_dag.py took 1.044 seconds
+[2026-02-19T12:09:57.181+0000] {processor.py:157} INFO - Started process (PID=445) to work on /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:09:57.184+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/weather_dag.py for tasks to queue
+[2026-02-19T12:09:57.185+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:09:57.185+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:09:57.797+0000] {processor.py:839} INFO - DAG(s) dict_keys(['weather_etl_v1']) retrieved from /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:09:57.829+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:09:57.828+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2026-02-19T12:09:57.856+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:09:57.856+0000] {dag.py:3722} INFO - Setting next_dagrun for weather_etl_v1 to 2026-02-19T11:00:00+00:00, run_after=2026-02-19T12:00:00+00:00
+[2026-02-19T12:09:57.891+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/weather_dag.py took 0.714 seconds
+[2026-02-19T12:10:28.659+0000] {processor.py:157} INFO - Started process (PID=451) to work on /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:10:28.661+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/weather_dag.py for tasks to queue
+[2026-02-19T12:10:28.662+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:10:28.662+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:10:29.308+0000] {processor.py:839} INFO - DAG(s) dict_keys(['weather_etl_v1']) retrieved from /opt/airflow/dags/weather_dag.py
+[2026-02-19T12:10:29.336+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:10:29.336+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2026-02-19T12:10:29.368+0000] {logging_mixin.py:154} INFO - [2026-02-19T12:10:29.367+0000] {dag.py:3722} INFO - Setting next_dagrun for weather_etl_v1 to 2026-02-19T11:00:00+00:00, run_after=2026-02-19T12:00:00+00:00
+[2026-02-19T12:10:29.399+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/weather_dag.py took 0.745 seconds
