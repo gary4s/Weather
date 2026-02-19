@@ -23,10 +23,11 @@ services:
         condition: service_healthy
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      # Updated to modern database config key
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      #- _PIP_ADDITIONAL_REQUIREMENTS=pandas requests sqlalchemy psycopg2-binary
       - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - PYTHONUNBUFFERED=1
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
@@ -44,8 +45,10 @@ services:
         condition: service_healthy
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - PYTHONUNBUFFERED=1
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
