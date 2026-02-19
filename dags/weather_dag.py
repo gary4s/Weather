@@ -1,31 +1,30 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import requests
 import pandas as pd
 import os
 
 # Configuration
 API_KEY = os.getenv("WEATHER_API_KEY")
-CITY = "London"
+CITY = "London, UK"
 
 def extract_transform_weather():
     # 1. EXTRACT
-    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{CITY}?unitGroup=metric&key={API_KEY}&contentType=json"
-    
+    url = f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={CITY}&aqi=no"   
+
     response = requests.get(url)
     response.raise_for_status()
     data = response.json()
     
     # 2. TRANSFORM
-    current_data = data['days'][0]
     df = pd.DataFrame([{
-        'city': data['address'],
-        'execution_date': datetime.utcnow(), # Use UTC for database consistency
-        'temp': current_data['temp'],
-        'humidity': current_data['humidity'],
-        'conditions': current_data['conditions']
+        'city': data['location']['name'],
+        'execution_date': datetime.now(timezone.utc),
+        'temp': data['current']['temp_c'],       # Current temp in Celsius
+        'humidity': data['current']['humidity'], # Humidity percentage
+        'conditions': data['current']['condition']['text'] # e.g., "Partly cloudy"
     }])
     
     # 3. LOAD TO SQL SERVER (LENOVOGARY4)

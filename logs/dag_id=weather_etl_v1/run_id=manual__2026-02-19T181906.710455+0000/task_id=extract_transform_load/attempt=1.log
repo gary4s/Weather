@@ -1,0 +1,22 @@
+[2026-02-19T18:19:10.874+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_v1.extract_transform_load manual__2026-02-19T18:19:06.710455+00:00 [queued]>
+[2026-02-19T18:19:10.895+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_v1.extract_transform_load manual__2026-02-19T18:19:06.710455+00:00 [queued]>
+[2026-02-19T18:19:10.896+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2026-02-19T18:19:10.926+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): extract_transform_load> on 2026-02-19 18:19:06.710455+00:00
+[2026-02-19T18:19:10.944+0000] {standard_task_runner.py:57} INFO - Started process 572 to run task
+[2026-02-19T18:19:10.954+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_v1', 'extract_transform_load', 'manual__2026-02-19T18:19:06.710455+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpopyhee49']
+[2026-02-19T18:19:10.960+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask extract_transform_load
+[2026-02-19T18:19:11.071+0000] {task_command.py:416} INFO - Running <TaskInstance: weather_etl_v1.extract_transform_load manual__2026-02-19T18:19:06.710455+00:00 [running]> on host 7859f85d0828
+[2026-02-19T18:19:11.228+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='weather_etl_v1' AIRFLOW_CTX_TASK_ID='extract_transform_load' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T18:19:06.710455+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T18:19:06.710455+00:00'
+[2026-02-19T18:19:11.564+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/weather_dag.py", line 24, in extract_transform_weather
+    'execution_date': datetime.now(timezone.utc),
+NameError: name 'timezone' is not defined
+[2026-02-19T18:19:11.600+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_etl_v1, task_id=extract_transform_load, execution_date=20260219T181906, start_date=20260219T181910, end_date=20260219T181911
+[2026-02-19T18:19:09.259+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 10 for task extract_transform_load (name 'timezone' is not defined; 572)
+[2026-02-19T18:19:09.306+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-02-19T18:19:09.335+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
