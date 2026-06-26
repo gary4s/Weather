@@ -1,3 +1,4 @@
 .env
 logs/
 */logs/airflow_logs
+.log
